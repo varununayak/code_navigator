@@ -11,6 +11,8 @@ python = ">=3.11, <3.12"
 llama-index = "^0.10.6"
 transformers = "^4.37.2"
 gradio = "^4.19.1"
+llama-cpp-python = "^0.2.44"
+torch = "^2.2.0"
 
 
 [build-system]
