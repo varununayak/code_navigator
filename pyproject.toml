@@ -4,15 +4,16 @@ version = "0.1.0"
 description = ""
 authors = ["Varun Nayak <varunnayak3101@gmail.com>"]
 readme = "README.md"
-packages = [{include = "code_navigator"}]
 
 [tool.poetry.dependencies]
 python = ">=3.11, <3.12"
-llama-index = "^0.10.6"
+llama-index = "==0.10.7"
 transformers = "^4.37.2"
 gradio = "^4.19.1"
 llama-cpp-python = "^0.2.44"
 torch = "^2.2.0"
+accelerate = "^0.27.2"
+llama-index-embeddings-huggingface = "^0.1.1"
 
 
 [build-system]
