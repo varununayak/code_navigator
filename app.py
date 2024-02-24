@@ -15,7 +15,7 @@ from accelerate.utils import BnbQuantizationConfig
 
 assert (torch.cuda.is_available())
 _MODEL_NAME = "microsoft/phi-2"
-_CODE_FILES = glob.glob(str(Path("/home/varun/personal/code_navigator/data/") / '*'), recursive=True)
+_CODE_FILES = glob.glob(str(Path("./data/") / '*'), recursive=True)
 _QUERY = "What does the python function 'foo' do?"
 PERSIST_DIR = "./storage"
 
@@ -54,9 +54,6 @@ class ChatBot:
         # load the documents and create the index
         documents = SimpleDirectoryReader(input_files=_CODE_FILES).load_data()
         index = VectorStoreIndex.from_documents(documents, llm=llm, embed_model='local')
-        # store it for later
-        index.storage_context.persist(persist_dir=PERSIST_DIR)
-
         self.query_engine = index.as_query_engine(llm=llm)
 
     def chat(self, message: str, history: str = None):
