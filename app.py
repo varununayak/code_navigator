@@ -54,11 +54,11 @@ class ChatBot:
         # load the documents and create the index
         documents = SimpleDirectoryReader(input_files=_CODE_FILES).load_data()
         index = VectorStoreIndex.from_documents(documents, llm=llm, embed_model='local')
-        self.query_engine = index.as_query_engine(llm=llm)
+        self.query_engine = index.as_chat_engine(llm=llm)
 
     def chat(self, message: str, history: str = None):
-        response = self.query_engine.query(message)
+        response = self.query_engine.chat(message)
         return str(response)
 
 chatbot = ChatBot()
-gr.ChatInterface(chatbot.chat).launch(share=True)
+gr.ChatInterface(chatbot.chat).launch(server_name="0.0.0.0")
