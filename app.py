@@ -61,5 +61,4 @@ class ChatBot:
         return str(response)
 
 chatbot = ChatBot()
-print(f"The answer is: {chatbot.chat('What does the function foo do?')}")
-#gr.ChatInterface(chatbot.chat).launch()
+gr.ChatInterface(chatbot.chat).launch(share=True)
