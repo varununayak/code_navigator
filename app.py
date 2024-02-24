@@ -33,9 +33,15 @@ class ChatBot:
             bnb_4bit_use_double_quant=True,
             bnb_4bit_quant_type="nf4"
         )
+        query_wrapper_prompt = PromptTemplate(
+            "Below is an instruction that describes a task. "
+            "Write a response that appropriately completes the request.\n\n"
+            "### Instruction:\n{query_str}\n\n### Response:"
+        )
         Settings.callback_manager = CallbackManager()
         Settings.chunk_size = 512
         llm = HuggingFaceLLM(
+            query_wrapper_prompt=query_wrapper_prompt,
             context_window=2048,
             max_new_tokens=256,
             generate_kwargs={"temperature": 0.1, "do_sample": True},
