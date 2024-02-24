@@ -12,8 +12,10 @@ transformers = "^4.37.2"
 gradio = "^4.19.1"
 llama-cpp-python = "^0.2.44"
 torch = "^2.2.0"
-accelerate = "^0.27.2"
+accelerate = {git = "https://github.com/huggingface/accelerate.git"}
 llama-index-embeddings-huggingface = "^0.1.1"
+safetensors = "^0.4.2"
+bitsandbytes = "^0.42.0"
 
 
 [build-system]
